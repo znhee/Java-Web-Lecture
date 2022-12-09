@@ -38,7 +38,7 @@ public class Gugudan extends HttpServlet {
 				+ "</body>\n"
 				+ "</html>";
 		out.print(data);
-	}
+	}   
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String dan_ = request.getParameter("dan");
