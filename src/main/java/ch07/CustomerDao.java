@@ -37,7 +37,6 @@ public class CustomerDao {
 			// Delete 대신에 isDeleted 필드를 1로 변경
 			pStmt.executeUpdate();
 			pStmt.close();
-			conn.close();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -46,24 +45,19 @@ public class CustomerDao {
 	
 	public void updateCustomer(Customer c) {
 		Connection conn = getConnection();
-		String sql = "UPDATE customer SET name=?, regDate=?, isDeleted=? WHERE uid=?;";
+		String sql = "UPDATE customer SET name=? WHERE uid=?;";
 		try {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, c.getUname());
-			pStmt.setString(2, c.getRegDate().toString());
-			pStmt.setInt(3, c.getIsDeleted());
-			pStmt.setString(4, c.getUid());
+			pStmt.setString(2, c.getUid());
 		
 			// Update 실행
 			pStmt.executeUpdate();
 			pStmt.close();
-			conn.close();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		
 	}
 	
 	public Customer getCustomer(String uid) {
@@ -84,7 +78,6 @@ public class CustomerDao {
 			}
 			rs.close();
 			pStmt.close();
-			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -111,7 +104,6 @@ public class CustomerDao {
 			}
 			rs.close();
 			stmt.close();
-			conn.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -128,7 +120,6 @@ public class CustomerDao {
 			
 			pStmt.executeUpdate();
 			pStmt.close();
-			conn.close();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
