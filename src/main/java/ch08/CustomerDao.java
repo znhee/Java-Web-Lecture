@@ -25,7 +25,7 @@ public class CustomerDao {
 			return null;
 		}
 		return conn;
-	}
+	} 
 	
 	public void deleteCustomer(String uid) {
 		Connection conn = getConnection();

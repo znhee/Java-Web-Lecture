@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class CustomerUpdateController
  */
-@WebServlet("/ch08/updateCustomer")
+@WebServlet("/ch08/updateCustomer")   
 public class CustomerUpdateController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
@@ -36,7 +36,7 @@ public class CustomerUpdateController extends HttpServlet {
 		CustomerDao dao = new CustomerDao();
 		dao.updateCustomer(c);
 		
-		response.sendRedirect("/jw/ch07/customer");
+		response.sendRedirect("/jw/ch08/customer");
 	}
 
 }

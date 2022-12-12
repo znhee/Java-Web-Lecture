@@ -17,7 +17,7 @@ public class DestRedirect extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String msg = request.getParameter("msg");
+		String msg = request.getParameter("msg");  
 		// URLDecoder.decode(msg, "utf-8");
 		
 		String addr = (String) request.getAttribute("addr");

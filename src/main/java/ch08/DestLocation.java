@@ -19,7 +19,7 @@ public class DestLocation extends HttpServlet {
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		out.print("<h1>location을 이용한 화면 이동</h1>");
-	}
+	}  
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub

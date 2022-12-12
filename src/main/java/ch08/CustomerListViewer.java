@@ -34,7 +34,7 @@ public class CustomerListViewer extends HttpServlet {
 		out.print("<body style=\"margin: 40px;\">");
 		out.print("    <h1>회원 리스트</h1>");
 		out.print("    <hr>");
-		out.print("	  <table border=\"1\">");
+		out.print("	  <table border=\"1\">"); 
 		out.print("	    <tr>");
 		out.print("	      <th>사용자ID</th><th>사용자명</th><th>가입일</th>");
 		out.print("	    </tr>");

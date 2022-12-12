@@ -24,7 +24,7 @@ public class DestDispatch extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.print("<h1>RequestDispatcher를 이용한 화면 이동</h1>");
 		out.print("<h1>" + msg + "</h1>");
-		out.print("<h1>" + addr + "</h1>");
+		out.print("<h1>" + addr + "</h1>");  
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

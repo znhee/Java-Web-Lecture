@@ -23,7 +23,7 @@ public class Customer {
 		this.regDate = regDate;
 		this.isDeleted = isDeleted;
 	}
-	
+	 
 	@Override
 	public String toString() {
 		return "Customer [uid=" + uid + ", uname=" + uname + ", regDate=" + regDate + ", isDeleted=" + isDeleted + "]";

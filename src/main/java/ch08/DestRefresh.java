@@ -17,7 +17,7 @@ public class DestRefresh extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html; charset=utf-8");
-		PrintWriter out = response.getWriter();
+		PrintWriter out = response.getWriter();  
 		out.print("<h1>Refresh를 이용한 화면 이동</h1>");
 	}
 

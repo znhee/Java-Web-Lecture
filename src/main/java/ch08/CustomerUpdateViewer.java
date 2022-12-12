@@ -31,7 +31,7 @@ public class CustomerUpdateViewer extends HttpServlet {
 				+ "    <title>회원 정보 수정</title> "
 				+ "    <style> "
 				+ "        td { text-align: center; padding: 3px;} "
-				+ "    </style> "
+				+ "    </style> "  
 				+ "</head> "
 				+ "<body style=\"margin: 40px;\"> "
 				+ "    <h1>회원 정보 수정</h1> "

@@ -23,7 +23,7 @@ public class CustomerController extends HttpServlet {
 		
 		request.setAttribute("customer", list);
 		RequestDispatcher rd = request.getRequestDispatcher("/ch08/customerList");
-		rd.forward(request, response);
+		rd.forward(request, response); 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
