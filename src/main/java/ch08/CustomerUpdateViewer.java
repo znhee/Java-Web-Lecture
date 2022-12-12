@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ch08.customer.Customer;
+
 /**
  * Servlet implementation class CustomerUpdateViewer
  */

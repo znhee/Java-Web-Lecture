@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ch08.customer.Customer;
+import ch08.customer.CustomerDao;
+
 /**
  * Servlet implementation class CustomerController
  */

@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 public class SourceLocation extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("/ch08/src3 doGet()");  
+		System.out.println("/ch08/src3 doGet()");
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		out.print("<script>");

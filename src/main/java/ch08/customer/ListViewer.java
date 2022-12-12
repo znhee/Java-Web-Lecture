@@ -1,4 +1,4 @@
-package ch08;
+package ch08.customer;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class CustomerListViewer
+ * Servlet implementation class ListViewer
  */
-@WebServlet("/ch08/customerList")
-public class CustomerListViewer extends HttpServlet {
+@WebServlet("/ch08/customer/listView")
+public class ListViewer extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		List<Customer> list = (List<Customer>)request.getAttribute("customer");
+		List<Customer> list = (List<Customer>)request.getAttribute("customerList");
 		
 		response.setCharacterEncoding("utf-8");		// 굳이 안해도 인코딩 오류 발생하지 않음
 		response.setContentType("text/html; charset=utf-8");	// 반드시 세팅해주어야 함
@@ -36,7 +36,7 @@ public class CustomerListViewer extends HttpServlet {
 		out.print("	<hr>");
 		out.print("	  <table border=\"1\">");
 		out.print("	    <tr>");
-		out.print("	      <th>사용자ID</th><th>사용자명</th><th>가입일</th>");
+		out.print("	      <th>사용자ID</th><th>사용자명</th><th>가입일</th><th>액션</th>");
 		out.print("	    </tr>");
 		
 		for (Customer c: list) {
@@ -44,17 +44,16 @@ public class CustomerListViewer extends HttpServlet {
 			out.print("       <td>" + c.getUid() + "</td>");
 			out.print("       <td>" + c.getUname() + "</td>");
 			out.print("       <td>" + c.getRegDate().toString() + "</td>");
+			out.print("       <td>" + "<a href=\"/jw/ch08/customer/update?uid="+ c.getUid() +"\">수정</a>&nbsp;" + 
+					"<a href=\"/jw/ch08/customer/delete?uid=" + c.getUid() +"\">삭제</a>" + "</td>");
 			out.print("	    <tr>");
 		}
 		
 		out.print("	</table>");
+		out.print(" <br>");
+		out.print(" <a href=\"/jw/ch08/customer/register.html\">회원 가입</a>");
 		out.print("</body>");
 		out.print("</html>");
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }
