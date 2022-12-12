@@ -16,15 +16,18 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/ch08/updateCustomer")   
 public class CustomerUpdateController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 사용자의 입력을 받음
 		request.setCharacterEncoding("utf-8");
 		String uid = request.getParameter("uid");
 		
+		// DB에서 필요한 정보를 가져옴
 		CustomerDao dao = new CustomerDao();
 		Customer c = dao.getCustomer(uid);
 		
+		// Viewer를 호출
 		request.setAttribute("customer", c);
 		RequestDispatcher rd = request.getRequestDispatcher("/ch08/updateView");
-		rd.forward(request, response);
+		rd.forward(request, response); 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
