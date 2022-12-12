@@ -1,6 +1,8 @@
-package ch07;
+package ch08;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,18 +10,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class PlayerDelete
+ * Servlet implementation class DestRedirect
  */
-@WebServlet("/ch07/deletePlayer")
-public class PlayerDelete extends HttpServlet {
+@WebServlet("/ch08/dst1")
+public class DestRedirect extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		int backNum = Integer.parseInt(request.getParameter("backNum"));
-		PlayerDao dao = new PlayerDao();
-		dao.deletePlayer(backNum);
+		String msg = request.getParameter("msg");
+		// URLDecoder.decode(msg, "utf-8");
 		
-		response.sendRedirect("/jw/ch07/playerList");
+		String addr = (String) request.getAttribute("addr");
+		
+		
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.print("<h1>sendRedirect를 이용한 화면 이동</h1>");
+		out.print("<h1>" + msg + "</h1>");
+		out.print("<h1>" + addr + "</h1>");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -1,4 +1,4 @@
-package ch07;
+package ch08;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,18 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class PlayerDelete
+ * Servlet implementation class SourceRefresh
  */
-@WebServlet("/ch07/deletePlayer")
-public class PlayerDelete extends HttpServlet {
+@WebServlet("/ch08/src2")
+public class SourceRefresh extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		int backNum = Integer.parseInt(request.getParameter("backNum"));
-		PlayerDao dao = new PlayerDao();
-		dao.deletePlayer(backNum);
-		
-		response.sendRedirect("/jw/ch07/playerList");
+		System.out.println("/ch08/src2 doGet()");
+		response.addHeader("Refresh", "5; url=/jw/ch08/dst2");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

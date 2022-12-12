@@ -59,7 +59,7 @@ public class PlayerDao {
 		Connection conn = getConnection();
 		Statement stmt = null;
 		List<Player> list = new ArrayList<>();
-		String sql = "SELECT * FROM baseballplayer;";
+		String sql = "SELECT * FROM baseballplayer WHERE isDeleted = 0;";
 		try {
 			stmt = conn.createStatement();
 			
