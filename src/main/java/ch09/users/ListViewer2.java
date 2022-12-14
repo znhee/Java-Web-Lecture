@@ -16,36 +16,37 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet("/ch09/users/listView")
 public class ListViewer2 extends HttpServlet {
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		
 		HttpSession session = request.getSession();
-		String sessionUid = (String)session.getAttribute("uid");
+		String sessionUid = (String) session.getAttribute("uid");
 		
-		List<User> list = (List<User>)request.getAttribute("userList");
-		String data = "<!DOCTYPE html>\n"
-				+ "<html lang=\"ko\">\n"
-				+ "<head>\n"
-				+ "    <meta charset=\"UTF-8\">\n"
-				+ "    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n"
-				+ "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
-				+ "    <title>사용자 목록</title>\n"
-				+ "    <style>\n"
-				+ "        td { text-align: center; padding: 3px;}\n"
-				+ "    </style>\n"
-				+ "</head>\n"
-				+ "<body style=\"margin: 40px;\">\n"
-				+ "    <h1>사용자 목록</h1>\n";
-		if (session.getAttribute("uid") != null) {		// login 되어 있는 상태
-			data += "<button onclick=\"location.href='/jw/ch09/users/logout'\">로그아웃</button>";
+		List<User> list = (List<User>) request.getAttribute("userList");
+		String data = "<!DOCTYPE html>"
+				+ "<html lang=\"en\">"
+				+ "<head>"
+				+ "    <meta charset=\"UTF-8\">"
+				+ "    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">"
+				+ "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
+				+ "    <title>사용자 목록</title>"
+				+ "    <style>"
+				+ "        td { text-align: center; padding: 3px; }"
+				+ "    </style>"
+				+ "</head>"
+				+ "<body style=\"margin: 40px;\">"
+				+ "    <h1>사용자 목록</h1>";
+		// 로그인 되었으면 로그아웃 버튼을 보여주고, 아니면 로그인 버튼을 보여주기
+		if (sessionUid != null) {		// 로그인 된 상태
+			data += "<button onclick=\"location.href='/jw/ch09/users/logout'\">로그아웃</button><br><br>";
 			data += session.getAttribute("uname") + "님 환영합니다.";
-		} else {
+		} else 
 			data += "<button onclick=\"location.href='/jw/ch09/users/login.html'\">로그인</button>";
-		}
-		data +=	"    <hr>\n"
-				+ "    <table border=\"1\">\n"
-				+ "        <tr><th>UID</th><th>PWD</th><th>이름</th><th>email</th><th>등록일자</th><th>액션</th></tr>";
+		data += "    <hr>"
+				+ "    <table border=\"1\">"
+				+ "        <tr><th>UID</th><th>PWD</th><th>Name</th><th>email</th><th>등록일</th><th>수정/삭제</th></tr>";
 		for (User u: list) {
 			data += "<tr>";
 			data += "<td>" + u.getUid() + "</td>";
@@ -54,23 +55,25 @@ public class ListViewer2 extends HttpServlet {
 			data += "<td>" + u.getEmail() + "</td>";
 			data += "<td>" + u.getRegDate() + "</td>";
 			data += "<td>";
+			
 			// 본인만이 수정 권한이 있음
 			if (sessionUid == null || !sessionUid.equals(u.getUid()))
-				data += "<button onclick=\"location.href='/jw/ch09/users/update?uid='\" disabled>수정</button>\n";
+				data += "<button disabled>수정</button>";
 			else
-				data += "<button onclick=\"location.href='/jw/ch09/users/update?uid='\">수정</button>\n";
-			// 관리자(admin)만이 삭제 권한이 있음
+				data += "<button onclick=\"location.href='/jw/ch09/users/update?uid=" + u.getUid() + "'\">수정</button>";
+			
+			// 관리자(admin) 만이 삭제 권한이 있음
 			if (sessionUid == null || !sessionUid.equals("admin"))
-				data += "<button onclick=\"location.href='/jw/ch09/users/delete?uid='\" disabled>삭제</button>";
+				data += "<button disabled>삭제</button>";
 			else
-				data += "<button onclick=\"location.href='/jw/ch09/users/delete?uid='\">삭제</button>";
+				data += "<button onclick=\"location.href='/jw/ch09/users/delete?uid=" + u.getUid() + "'\">삭제</button>";
 			data += "</td>";
 			data += "</tr>";
 		}
-		data += "</table>\n"
-				+ "    <br>\n"
-				+ "    <a href=\"/jw/ch09/users/register.html\">회원 가입</a>\n"
-				+ "</body>\n"
+		data += "</table>"
+				+ "    <br>"
+				+ "    <a href=\"/jw/ch09/users/register.html\">회원 가입</a>"
+				+ "</body>"
 				+ "</html>";
 		out.print(data);
 	}

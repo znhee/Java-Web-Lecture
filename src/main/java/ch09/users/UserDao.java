@@ -27,7 +27,7 @@ public class UserDao {
 			return null;
 		}
 		return conn;
-	} 
+	}
 	
 	public void deleteUser(String uid) {
 		Connection conn = getConnection();
@@ -45,14 +45,12 @@ public class UserDao {
 	
 	public void updateUser(User u) {
 		Connection conn = getConnection();
-		String sql = "UPDATE users SET pwd=?, uname=?, email=?, regDate=? WHERE uid=?;";
+		String sql = "UPDATE users SET uname=?, email=? WHERE uid=?;";
 		try {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setString(1, u.getPwd());
-			pStmt.setString(2, u.getUname());
-			pStmt.setString(3, u.getEmail());
-			pStmt.setString(4, u.getRegDate().toString());
-			pStmt.setString(5, u.getUid());
+			pStmt.setString(1, u.getUname());
+			pStmt.setString(2, u.getEmail());
+			pStmt.setString(3, u.getUid());
 			
 			pStmt.executeUpdate();
 			pStmt.close(); conn.close();
