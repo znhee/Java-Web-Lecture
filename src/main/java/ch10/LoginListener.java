@@ -14,7 +14,7 @@ public class LoginListener implements HttpSessionAttributeListener {
 	
     public LoginListener() {
         // TODO Auto-generated constructor stub
-    }
+    }  
 
     public void attributeAdded(HttpSessionBindingEvent se)  { 
     	total_user++;

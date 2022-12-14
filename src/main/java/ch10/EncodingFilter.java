@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 //@WebFilter("/ch10/*")
 public class EncodingFilter extends HttpFilter implements Filter {
     ServletContext context;
-    
+      
     public EncodingFilter() {
         super();
         System.out.println("EncodingFilter 생성자");

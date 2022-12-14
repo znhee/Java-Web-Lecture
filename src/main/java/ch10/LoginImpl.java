@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSessionListener;
 public class LoginImpl implements HttpSessionListener {
 	String uid=null, uname=null;
 	static int total_user = 0;
-	
+	  
     public LoginImpl() {
     	System.out.println("LoginImpl 생성자");
     }

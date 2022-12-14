@@ -18,7 +18,7 @@ public class FilterTest extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("FilterTest doGet()");
 		String msg = request.getParameter("msg");
-		
+		  
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		out.print("<h1>Filter Test</h1>");

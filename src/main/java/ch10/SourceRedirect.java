@@ -21,7 +21,7 @@ public class SourceRedirect extends HttpServlet {
 		System.out.println("SourceRedirect doGet()");
 		
 		String msg = "SourceRedirect, 한글 메세지";
-
+  
 		response.sendRedirect("/jw/ch10/filterTest?msg=" + msg);
 	}
 
