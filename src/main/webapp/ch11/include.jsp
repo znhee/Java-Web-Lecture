@@ -10,6 +10,6 @@
 	<h1>안녕하세요. 쇼핑몰 중심 JSP 시작입니다.</h1>
 	<!-- <%@ include file = "duke_image.jsp" %> -->
 	<%@ include file = "_duke.jspf" %>
-	<h1>안녕하세요. 쇼핑몰 중심 JSP 끝입니다.</h1>
+	<h1>안녕하세요. 쇼핑몰 중심 JSP 끝입니다.</h1> 
 </body>
 </html>

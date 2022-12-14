@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>홀수 짝수 구분</title>
+<title>홀수 짝수 구분</title> 
 </head>
 <body>
 	<h1>홀수 짝수 구분</h1>

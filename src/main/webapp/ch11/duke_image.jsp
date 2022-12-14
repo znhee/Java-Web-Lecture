@@ -7,6 +7,6 @@
 <title>Duke Image</title>
 </head>
 <body>
-	<img src="../img/duke.png" width="200">
+	<img src="../img/duke.png" width="200"> 
 </body>
 </html>
